@@ -1,3 +1,37 @@
-<p>
-  navbar works!
-</p>
+<div class="list-group" id="list-tab" role="tablist">
+  <div *ngFor="let menu of menus">
+    <a class="list-group-item list-group-item-action" [ngClass]="{active:menuChoisi === menu}" (click)="setMenu(menu)">
+      {{ menu.name }}
+    </a>
+    <div class="list-group" *ngIf="menuChoisi === menu && menu.sousMenus">
+      <div *ngFor="let sousMenu of menu.sousMenus">
+        <a class="list-group-item list-group-item-action" [ngClass]="{active:sousMenuChoisi === sousMenu}" (click)="setSousMenu(sousMenu)">
+        {{ sousMenu.name }}
+        </a>
+        <div class="list-group" *ngIf="sousMenuChoisi === sousMenu && sousMenu.sousMenus">
+          <div *ngFor="let sousSousMenu of sousMenus.sousMenu">
+            <a class="list-group-item list-group-item-action" [ngClass]="{active:sousSousMenuChoisi === sousSousMenu}" (click)="setSousSousMenu(sousSousMenu)">
+            {{ sousSousMenu.name }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isSelect('materiel')">
+  Le matériel:
+  ...
+</div>
+<div *ngIf="isSelect('pionAlien')">
+  Les différents pions / Les alien:
+  ...
+</div>
+<div *ngIf="isSelect('pionDames')">
+  Les différents pions / Les dames alien:
+  ...
+</div>
+<div *ngIf="isSelect('deplacementsAlien')">
+  Les Déplacements / Les alien:
+  ...
+</div>
