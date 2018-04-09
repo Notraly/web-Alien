@@ -1,16 +1,16 @@
-<div class="list-group" id="list-tab" role="tablist">
-  <div *ngFor="let menu of menus">
-    <a class="list-group-item list-group-item-action" [ngClass]="{active:menuChoisi === menu}" (click)="setMenu(menu)">
+<div class="menus menus-main" role="tablist">
+  <div *ngFor="let menu of menus" class="menu menu-main">
+    <a [ngClass]="{active:menuChoisi === menu}" (click)="selectMenu(menu)">
       {{ menu.name }}
     </a>
-    <div class="list-group" *ngIf="menuChoisi === menu && menu.sousMenus">
-      <div *ngFor="let sousMenu of menu.sousMenus">
-        <a class="list-group-item list-group-item-action" [ngClass]="{active:sousMenuChoisi === sousMenu}" (click)="setSousMenu(sousMenu)">
+    <div *ngIf="menuChoisi === menu && menu.sousMenus" class="menus sous-menus">
+      <div *ngFor="let sousMenu of menu.sousMenus" class="menu sous-menu">
+        <a [ngClass]="{active:sousMenuChoisi === sousMenu}" (click)="selectSousMenu(sousMenu)">
         {{ sousMenu.name }}
         </a>
-        <div class="list-group" *ngIf="sousMenuChoisi === sousMenu && sousMenu.sousMenus">
-          <div *ngFor="let sousSousMenu of sousMenus.sousMenu">
-            <a class="list-group-item list-group-item-action" [ngClass]="{active:sousSousMenuChoisi === sousSousMenu}" (click)="setSousSousMenu(sousSousMenu)">
+        <div *ngIf="sousMenuChoisi === sousMenu && sousMenu.sousMenus" class="menus sous-sous-menu">
+          <div *ngFor="let sousSousMenu of sousMenu.sousMenus" class="menu sous-sous-menu">
+            <a [ngClass]="{active:sousSousMenuChoisi === sousSousMenu}" (click)="selectSousSousMenu(sousSousMenu)">
             {{ sousSousMenu.name }}
             </a>
           </div>

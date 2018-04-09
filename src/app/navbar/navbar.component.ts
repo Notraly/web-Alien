@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   sousMenuChoisi = null;
   sousSousMenuChoisi = null;
   menus = [
-    { id: 'materiel', name: 'Le matériel', sousMenus: [] },
+    { id: 'materiel', name: 'Le matériel' },
     {
       id: 'differentPions',
       name: 'Les différents pions',
@@ -102,18 +102,18 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  setMenu(menu){
+  selectMenu(menu){
     this.menuChoisi = menu;
     this.sousMenuChoisi = null;
     this.sousSousMenuChoisi = null;
   }
 
-  setSousMenu(sousMenu){
+  selectSousMenu(sousMenu){
     this.sousMenuChoisi = sousMenu;
     this.sousSousMenuChoisi = null;
   }
 
-  setSousSousMenu(sousMenu){
+  selectSousSousMenu(sousMenu){
     this.sousSousMenuChoisi = sousMenu;
   }
 
