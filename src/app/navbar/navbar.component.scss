@@ -1,2 +1,29 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+
 :host{
+}
+
+.menus {
+    margin-left: 10px;
+    border-bottom: solid 1px $color-gris1;
+}
+
+.menu > a {
+    border-left: solid 1px $color-gris1;
+    padding-left: 5px;
+    cursor: pointer;
+    display: block;
+
+    &:hover{
+      border-left: solid 4px $color-gris1;
+      padding-left: 2px;
+    }
+
+    &.active{
+      border-left: solid 4px $color-bleu1;
+      color: $color-bleu1;
+      padding-left: 2px;
+      font-weight: bold;
+    }
 }
